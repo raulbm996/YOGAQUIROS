@@ -614,7 +614,7 @@ header {
 /* ===== PRESUPUESTO CTA ===== */
 .presupuesto {
   position: relative;
-  background: url('../images/viaje_interior.png') center 30%/cover no-repeat fixed;
+  background: url('../images/viaje2.jpg') center center/cover no-repeat;
   padding: 160px 0;
   text-align: center;
   color: var(--white);
@@ -623,9 +623,8 @@ header {
 
 @media (max-width: 768px) {
   .presupuesto {
-    background-attachment: fixed;
     background-size: cover !important;
-    background-position: center bottom !important;
+    background-position: center center !important;
     padding: 120px 20px;
   }
 }
