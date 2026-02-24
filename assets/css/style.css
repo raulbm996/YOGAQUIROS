@@ -621,6 +621,15 @@ header {
   overflow: hidden;
 }
 
+@media (max-width: 768px) {
+  .presupuesto {
+    background-attachment: scroll;
+    /* Fixes massive zoom on iOS/mobile browsers */
+    background-position: center center;
+    padding: 100px 20px;
+  }
+}
+
 .presupuesto::before {
   content: '';
   position: absolute;
