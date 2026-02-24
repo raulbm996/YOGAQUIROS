@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horarios y Tarifas | Yoga Quirós</title>
+    <meta name="description"
+        content="Consulta nuestros horarios de clases de Hatha, Vinyasa y Restaurativo, así como las tarifas mensuales de Yoga Quirós.">
+    <link rel="icon" type="image/png" href="assets/images/logo-removebg-preview.png">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        .schedule-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin-top: 2rem;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .schedule-table th {
+            background-color: var(--text-primary);
+            color: #fff;
+            padding: 1.5rem;
+            text-align: center;
+            font-family: var(--font-heading);
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .schedule-table td {
+            background-color: #fff;
+            padding: 1.5rem;
+            text-align: center;
+            border-bottom: 1px solid var(--accent-light);
+            border-right: 1px solid var(--accent-light);
+            vertical-align: middle;
+        }
+
+        .schedule-table td:last-child {
+            border-right: none;
+        }
+
+        .schedule-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .time-slot {
+            font-weight: bold;
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        .class-badge {
+            display: inline-block;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+            color: #fff;
+        }
+
+        .badge-hatha {
+            background-color: #B18C27;
+        }
+
+        .badge-vinyasa {
+            background-color: #8D9B85;
+            /* Soft green */
+        }
+
+        .badge-restaurativo {
+            background-color: #A39171;
+            /* Taupe/Brown soft */
+        }
+
+        .pricing-cards {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 3rem;
+        }
+
+        .pricing-card {
+            background: #fff;
+            border-radius: 8px;
+            padding: 3rem 2rem;
+            text-align: center;
+            box-shadow: var(--shadow-soft);
+            flex: 1;
+            min-width: 250px;
+            max-width: 350px;
+            border-top: 5px solid var(--accent-gold);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .price {
+            font-size: 3.5rem;
+            font-family: var(--font-heading);
+            color: var(--text-primary);
+            margin: 1.5rem 0 0.5rem;
+            line-height: 1;
+        }
+
+        .currency {
+            font-size: 1.5rem;
+            vertical-align: super;
+        }
+
+        @media (max-width: 768px) {
+
+            .schedule-table,
+            .schedule-table tbody,
+            .schedule-table tr,
+            .schedule-table td {
+                display: block;
+                width: 100%;
+            }
+
+            .schedule-table th {
+                display: none;
+            }
+
+            .schedule-table tr {
+                margin-bottom: 1rem;
+                border: 1px solid var(--accent-light);
+                border-radius: 8px;
+                overflow: hidden;
+            }
+
+            .schedule-table td {
+                border-right: none;
+                text-align: left;
+                position: relative;
+                padding-left: 50%;
+            }
+
+            .schedule-table td::before {
+                content: attr(data-label);
+                position: absolute;
+                left: 1rem;
+                width: 45%;
+                font-weight: bold;
+                text-align: left;
+                color: var(--text-primary);
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+
+
+    <!-- ===== HEADER ===== -->
+    <header>
+        <nav class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="assets/images/logo-removebg-preview.png" alt="Yoga Quirós" class="logo-img">
+            </a>
+            <div class="nav-menu" id="navMenu">
+                <a href="index.html">Inicio</a>
+                <a href="sobre-nosotros.html" class="">Sobre nosotros</a>
+                <a href="clases.html" class="">Qué ofrecemos</a>
+                <a href="horarios-tarifas.html" class="active">Horarios y Tarifas</a>
+                <a href="contacto.html" class="">Contacto</a>
+                <a href="reservas.html" class="btn-nav-highlight">Reservas</a>
+            </div>
+            <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+                <span></span><span></span><span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Page Header -->
+    <section class="hero" style="min-height: 50vh; height: 50vh;">
+        <div class="hero-bg" style="background-image: url('assets/images/inicio.mejorada.png')"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 style="color: #fff; text-transform: uppercase;">Horarios y Tarifas</h1>
+        </div>
+    </section>
+
+    <!-- Schedule Content -->
+    <section class="section" style="background-color: var(--bg-color);">
+        <div class="container fade-in text-center">
+
+            <h2 class="text-gold" style="margin-bottom: 1rem;">Nuestros Horarios</h2>
+            <p style="max-width: 600px; margin: 0 auto 3rem;">Encuentra el momento perfecto para tu práctica. Te
+                recomendamos llegar 10 minutos antes del inicio de tu clase.</p>
+
+            <table class="schedule-table">
+                <thead>
+                    <tr>
+                        <th>Hora</th>
+                        <th>Lunes y Miércoles</th>
+                        <th>Martes y Jueves</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="Hora" class="time-slot">09:15 - 11:30h</td>
+                        <td data-label="Lunes y Miércoles">
+                            <span class="class-badge badge-hatha">Hatha Yoga</span>
+                        </td>
+                        <td data-label="Martes y Jueves">-</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Hora" class="time-slot">11:45 - 12:45h</td>
+                        <td data-label="Lunes y Miércoles">-</td>
+                        <td data-label="Martes y Jueves">
+                            <span class="class-badge badge-restaurativo">Yoga Restaurativo</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td data-label="Hora" class="time-slot">18:00 - 19:00h</td>
+                        <td data-label="Lunes y Miércoles">
+                            <span class="class-badge badge-vinyasa">Vinyasa Yoga</span>
+                        </td>
+                        <td data-label="Martes y Jueves" rowspan="2">
+                            <span class="class-badge badge-hatha">Hatha Yoga</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td data-label="Hora" class="time-slot">19:15 - 20:15h</td>
+                        <td data-label="Lunes y Miércoles">
+                            <span class="class-badge badge-hatha">Hatha Yoga</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td data-label="Hora" class="time-slot">20:30 - 21:30h</td>
+                        <td data-label="Lunes y Miércoles">-</td>
+                        <td data-label="Martes y Jueves">
+                            <span class="class-badge badge-hatha">Clase Nocturna</span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="section" style="background-color: var(--accent-light);">
+        <div class="container fade-in text-center">
+            <h2 class="text-gold" style="margin-bottom: 1rem;">Cuota Mensual</h2>
+            <p style="max-width: 600px; margin: 0 auto;">Elige el plan que mejor se adapte a tu ritmo de vida y
+                compromiso con tu práctica.</p>
+
+            <div class="pricing-cards">
+                <div class="pricing-card">
+                    <h3
+                        style="font-size: 1.2rem; text-transform: uppercase; letter-spacing: 2px; color: var(--text-secondary);">
+                        2 Días a la Semana</h3>
+                    <div class="price" style="color: var(--accent-gold);">40<span class="currency">€</span></div>
+                    <p style="margin-bottom: 2rem;">Acceso a dos clases guiadas por semana.</p>
+                    <a href="reservas.html" class="btn btn-outline" style="width: 100%;">Apuntarme</a>
+                </div>
+
+                <div class="pricing-card">
+                    <h3
+                        style="font-size: 1.2rem; text-transform: uppercase; letter-spacing: 2px; color: var(--text-secondary);">
+                        4 Días a la Semana</h3>
+                    <div class="price" style="color: var(--accent-gold);">60<span class="currency">€</span></div>
+                    <p style="margin-bottom: 2rem;">Práctica profunda con cuatro clases
+                        guiadas semanales.</p>
+                    <a href="reservas.html" class="btn btn-outline" style="width: 100%;">Apuntarme</a>
+                </div>
+            </div>
+
+            <p
+                style="margin-top: 3rem; font-size: 0.9rem; color: var(--text-secondary); max-width: 600px; margin-left: auto; margin-right: auto;">
+                * Contacta con nosotros para consultar disponibilidad de plazas y probar tu primera clase.
+            </p>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="footer-main">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-col">
+                        <h3>Sobre Nosotros</h3>
+                        <p>Centro dedicado a llevar los beneficios del Yoga y la relajación profunda a tu vida de manera
+                            profesional y personal.</p>
+                    </div>
+                    <div class="footer-col">
+                        <h3>Donde Estamos</h3>
+                        <div class="footer-contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <a href="https://maps.app.goo.gl/vKVB9Pz6PvzB8QxY7" target="_blank" rel="noopener">C/
+                                Duquesa de Talavera 33<br>41500 Alcalá de Guadaíra, Sevilla</a>
+                        </div>
+                        <div class="footer-contact-item">
+                            <i class="fas fa-phone-alt"></i>
+                            <div><a href="tel:+34671648639">+34 671 648 639</a></div>
+                        </div>
+                        <div class="footer-contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:yogaquiros2025@gmail.com">yogaquiros2025@gmail.com</a>
+                        </div>
+                        <div class="footer-contact-item">
+                            <i class="fab fa-instagram"></i>
+                            <a href="https://instagram.com/yogaquiros" target="_blank">@yogaquiros</a>
+                        </div>
+                    </div>
+                    <div class="footer-col">
+                        <h3>Contacto</h3>
+                        <form class="footer-form">
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+                                <input type="text" name="nombre" placeholder="Nombre *" required>
+                                <input type="email" name="email" placeholder="Email *" required>
+                            </div>
+                            <input type="tel" name="telefono" placeholder="Teléfono">
+                            <textarea name="mensaje" placeholder="Mensaje *" required></textarea>
+                            <button type="submit" class="btn-send">Enviar Mensaje</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>Copyright &copy; 2026 - YOGA QUIRÓS | Todos los derechos reservados</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>

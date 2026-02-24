@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre Nosotros | Yoga Quirós</title>
+    <meta name="description"
+        content="Nuestra experiencia y la de su fundadora, Patricia Quirós, abarca años de práctica personal y profesional.">
+    <link rel="icon" type="image/png" href="assets/images/logo-removebg-preview.png">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+
+
+    <!-- ===== HEADER ===== -->
+    <header>
+        <nav class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="assets/images/logo-removebg-preview.png" alt="Yoga Quirós" class="logo-img">
+            </a>
+            <div class="nav-menu" id="navMenu">
+                <a href="index.html">Inicio</a>
+                <a href="sobre-nosotros.html" class="active">Sobre nosotros</a>
+                <a href="clases.html" class="">Qué ofrecemos</a>
+                <a href="horarios-tarifas.html" class="">Horarios y Tarifas</a>
+                <a href="contacto.html" class="">Contacto</a>
+                <a href="reservas.html" class="btn-nav-highlight">Reservas</a>
+            </div>
+            <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+                <span></span><span></span><span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Page Header -->
+    <section class="hero" style="min-height: 50vh; height: 50vh;">
+        <div class="hero-bg" style="background-image: url('assets/images/inicio.mejorada.png')"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 style="color: #fff; text-transform: uppercase;">Sobre Nosotros</h1>
+        </div>
+    </section>
+
+    <!-- About Content -->
+    <section class="section">
+        <div class="container fade-in">
+            <div style="display: flex; flex-wrap: wrap; gap: 4rem; align-items: flex-start;">
+
+                <div style="flex: 1; min-width: 300px;">
+                    <img src="assets/images/sobre.nosotros.jpg" alt="Centro Yoga Quirós"
+                        style="width: 100%; border-radius: 24px; box-shadow: var(--shadow-soft);">
+                </div>
+
+                <div style="flex: 1.5; min-width: 300px;">
+                    <h2
+                        style="margin-bottom: 2rem; color: var(--text-primary); letter-spacing: 2px; text-transform: uppercase;">
+                        Patricia Quirós</h2>
+                    <p style="font-size: 1.2rem; line-height: 1.8; color: var(--text-primary);">
+                        Patricia Quirós, fundadora del centro, destaca por una filosofía basada en la transformación
+                        personal a través de la práctica consciente y profesional. Nuestra experiencia abarca años de
+                        práctica personal y profesional, con una profunda comprensión del cuerpo, de la mente y del
+                        proceso de evolución interior.
+                    </p>
+                    <p style="font-size: 1.1rem; line-height: 1.8; margin-top: 1.5rem;">
+                        Creemos en un acompañamiento y guía integral. Cada sesión está diseñada para fomentar la
+                        conexión profunda entre tu respiración, tu cuerpo y tu estado mental, creando un refugio donde
+                        honramos la esencia del yoga.
+                    </p>
+                </div>
+
+            </div>
+
+            <div
+                style="margin-top: 6rem; text-align: center; border-top: 1px solid var(--accent-light); padding-top: 4rem;">
+                <h3 style="font-size: 2rem; margin-bottom: 2rem; letter-spacing: 2px;">
+                    CERTIFICACIONES</h3>
+                <p style="max-width: 800px; margin: 0 auto; font-size: 1.25rem;">
+                    Profesores acreditados por la <strong class="text-gold">European Yoga Alliance (EYA)</strong> y por
+                    la <strong class="text-gold">Yoga Alliance Internacional (YAI)</strong>.
+                </p>
+                <div style="display: flex; justify-content: center; gap: 2rem; margin-top: 3rem; flex-wrap: wrap;">
+                    <!-- Placeholder certification logos if they existed in images, keeping structure clean -->
+                    <div
+                        style="width: 120px; height: 120px; border-radius: 50%; border: 2px solid var(--accent-gold); display: flex; align-items: center; justify-content: center; font-family: var(--font-heading); color: var(--accent-gold);">
+                        EYA
+                    </div>
+                    <div
+                        style="width: 120px; height: 120px; border-radius: 50%; border: 2px solid var(--accent-gold); display: flex; align-items: center; justify-content: center; font-family: var(--font-heading); color: var(--accent-gold);">
+                        YAI
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to action -->
+    <section class="section" style="background-color: var(--accent-light); text-align: center;">
+        <div class="container fade-in">
+            <h3 style="font-style: italic; color: var(--text-primary); margin-bottom: 2rem;">"Un espacio para conectar"
+            </h3>
+            <a href="reservas.html" class="btn btn-gold">Ven a practicar con nosotros</a>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="footer-main">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-col">
+                        <h3>Sobre Nosotros</h3>
+                        <p>Centro dedicado a llevar los beneficios del Yoga y la relajación profunda a tu vida de manera
+                            profesional y personal.</p>
+                    </div>
+                    <div class="footer-col">
+                        <h3>Donde Estamos</h3>
+                        <div class="footer-contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <a href="https://maps.app.goo.gl/vKVB9Pz6PvzB8QxY7" target="_blank" rel="noopener">C/
+                                Duquesa de Talavera 33<br>41500 Alcalá de Guadaíra, Sevilla</a>
+                        </div>
+                        <div class="footer-contact-item">
+                            <i class="fas fa-phone-alt"></i>
+                            <div><a href="tel:+34671648639">+34 671 648 639</a></div>
+                        </div>
+                        <div class="footer-contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:yogaquiros2025@gmail.com">yogaquiros2025@gmail.com</a>
+                        </div>
+                        <div class="footer-contact-item">
+                            <i class="fab fa-instagram"></i>
+                            <a href="https://instagram.com/yogaquiros" target="_blank">@yogaquiros</a>
+                        </div>
+                    </div>
+                    <div class="footer-col">
+                        <h3>Contacto</h3>
+                        <form class="footer-form">
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+                                <input type="text" name="nombre" placeholder="Nombre *" required>
+                                <input type="email" name="email" placeholder="Email *" required>
+                            </div>
+                            <input type="tel" name="telefono" placeholder="Teléfono">
+                            <textarea name="mensaje" placeholder="Mensaje *" required></textarea>
+                            <button type="submit" class="btn-send">Enviar Mensaje</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>Copyright &copy; 2026 - YOGA QUIRÓS | Todos los derechos reservados</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>

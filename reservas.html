@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservar Clase | Yoga Quirós</title>
+    <meta name="description" content="Reserva tu plaza para las clases de Yoga Quirós.">
+    <link rel="icon" type="image/png" href="assets/images/logo-removebg-preview.png">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/booking.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+
+
+    <!-- ===== HEADER ===== -->
+    <header>
+        <nav class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="assets/images/logo-removebg-preview.png" alt="Yoga Quirós" class="logo-img">
+            </a>
+            <div class="nav-menu" id="navMenu">
+                <a href="index.html">Inicio</a>
+                <a href="sobre-nosotros.html" class="">Sobre nosotros</a>
+                <a href="clases.html" class="">Qué ofrecemos</a>
+                <a href="horarios-tarifas.html" class="">Horarios y Tarifas</a>
+                <a href="contacto.html" class="">Contacto</a>
+                <a href="reservas.html" class="btn-nav-highlight">Reservas</a>
+            </div>
+            <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+                <span></span><span></span><span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Booking Section -->
+    <section class="booking-section">
+        <div class="booking-container">
+
+            <div class="booking-header fade-in">
+                <h2 class="text-gold">Reserva tu Clase</h2>
+                <p>Sigue los pasos a continuación para asegurar tu plaza en nuestra próxima sesión.</p>
+            </div>
+
+            <!-- Steps Indicator -->
+            <div class="booking-steps-wrapper fade-in">
+                <div class="booking-progress-bar">
+                    <div class="booking-progress-fill" id="progress-fill"></div>
+                </div>
+                <div class="booking-steps">
+                    <div class="step active" id="indicator-step-1" onclick="goToStep(1)">
+                        <div class="step-icon"><i class="fas fa-spa"></i></div>
+                        <div class="step-label">Estilo</div>
+                    </div>
+                    <div class="step" id="indicator-step-2" onclick="goToStep(2)">
+                        <div class="step-icon"><i class="far fa-calendar-alt"></i></div>
+                        <div class="step-label">Fecha</div>
+                    </div>
+                    <div class="step" id="indicator-step-3" onclick="goToStep(3)">
+                        <div class="step-icon"><i class="far fa-user"></i></div>
+                        <div class="step-label">Datos</div>
+                    </div>
+                    <div class="step" id="indicator-step-4" onclick="goToStep(4)">
+                        <div class="step-icon"><i class="far fa-check-circle"></i></div>
+                        <div class="step-label">Confirmación</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 1: Select Service -->
+            <div class="booking-step-content active" id="step-1">
+                <h3 style="text-align: center; margin-bottom: 2rem;">¿Qué clase te gustaría practicar hoy?</h3>
+
+                <div class="service-cards">
+                    <div class="service-card" onclick="selectService('Hatha')">
+                        <div class="service-image" style="background-image: url('assets/images/hatha-booking.jpg');">
+                        </div>
+                        <div class="service-content">
+                            <div class="service-icon"><i class="fas fa-spa"></i></div>
+                            <h4 class="service-title">Hatha Yoga</h4>
+                            <p class="service-desc">Equilibrio de energías internas mediante asanas y pranayama.</p>
+                            <div class="service-footer">
+                                <span class="service-duration"><i class="far fa-clock"></i> 60 mins</span>
+                                <span class="service-action">Elegir <i class="fas fa-arrow-right"></i></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="service-card" onclick="selectService('Vinyasa')">
+                        <div class="service-image" style="background-image: url('assets/images/vinyasa-booking.jpg');">
+                        </div>
+                        <div class="service-content">
+                            <div class="service-icon"><i class="fas fa-water"></i></div>
+                            <h4 class="service-title">Vinyasa Yoga</h4>
+                            <p class="service-desc">Movimiento dinámico y fluido sincronizado con la respiración.</p>
+                            <div class="service-footer">
+                                <span class="service-duration"><i class="far fa-clock"></i> 60 mins</span>
+                                <span class="service-action">Elegir <i class="fas fa-arrow-right"></i></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="service-card" onclick="selectService('Restaurativo')">
+                        <div class="service-image"
+                            style="background-image: url('assets/images/restaurativo-booking.jpg');"></div>
+                        <div class="service-content">
+                            <div class="service-icon"><i class="fas fa-moon"></i></div>
+                            <h4 class="service-title">Yoga Restaurativo</h4>
+                            <p class="service-desc">Relajación profunda manteniendo posturas con soportes.</p>
+                            <div class="service-footer">
+                                <span class="service-duration"><i class="far fa-clock"></i> 60 mins</span>
+                                <span class="service-action">Elegir <i class="fas fa-arrow-right"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="booking-nav" style="justify-content: flex-end;">
+                    <button class="btn btn-gold" id="btn-next-1" disabled onclick="nextStep(2)">Continuar</button>
+                </div>
+            </div>
+
+            <!-- Step 2: Select Date and Time -->
+            <div class="booking-step-content" id="step-2">
+                <h3 style="text-align: center; margin-bottom: 2rem;">Selecciona una fecha y hora</h3>
+
+                <div class="calendar-wrapper">
+                    <!-- Calendar Mockup -->
+                    <div>
+                        <div class="calendar-header">
+                            <button class="nav-month-btn"><i class="fas fa-chevron-left"></i></button>
+                            <h4 class="calendar-month-title">Marzo 2026</h4>
+                            <button class="nav-month-btn"><i class="fas fa-chevron-right"></i></button>
+                        </div>
+                        <div class="calendar-grid">
+                            <div class="day-name">L</div>
+                            <div class="day-name">M</div>
+                            <div class="day-name">X</div>
+                            <div class="day-name">J</div>
+                            <div class="day-name">V</div>
+                            <div class="day-name">S</div>
+                            <div class="day-name">D</div>
+
+                            <!-- Dummy days -->
+                            <div class="day-cell empty"></div>
+                            <div class="day-cell empty"></div>
+                            <div class="day-cell empty"></div>
+                            <div class="day-cell empty"></div>
+                            <div class="day-cell empty"></div>
+                            <div class="day-cell empty"></div>
+                            <div class="day-cell disabled">1</div>
+                            <div class="day-cell disabled">2</div>
+                            <div class="day-cell disabled">3</div>
+                            <div class="day-cell disabled">4</div>
+                            <div class="day-cell disabled">5</div>
+                            <div class="day-cell disabled">6</div>
+                            <div class="day-cell disabled">7</div>
+                            <div class="day-cell disabled">8</div>
+                            <div class="day-cell disabled">9</div>
+                            <div class="day-cell disabled">10</div>
+                            <div class="day-cell disabled">11</div>
+                            <div class="day-cell disabled">12</div>
+                            <div class="day-cell disabled">13</div>
+                            <div class="day-cell disabled">14</div>
+                            <div class="day-cell disabled">15</div>
+                            <div class="day-cell disabled">16</div>
+                            <div class="day-cell disabled">17</div>
+                            <div class="day-cell disabled">18</div>
+                            <div class="day-cell disabled">19</div>
+                            <div class="day-cell disabled">20</div>
+                            <div class="day-cell disabled">21</div>
+                            <div class="day-cell disabled">22</div>
+                            <div class="day-cell today selected" onclick="selectDate(this)">23</div>
+                            <div class="day-cell" onclick="selectDate(this)">24</div>
+                            <div class="day-cell" onclick="selectDate(this)">25</div>
+                            <div class="day-cell" onclick="selectDate(this)">26</div>
+                            <div class="day-cell" onclick="selectDate(this)">27</div>
+                            <div class="day-cell disabled">28</div>
+                            <div class="day-cell disabled">29</div>
+                            <div class="day-cell" onclick="selectDate(this)">30</div>
+                            <div class="day-cell" onclick="selectDate(this)">31</div>
+                        </div>
+                    </div>
+
+                    <!-- Time slots -->
+                    <div class="time-slots">
+                        <h4 style="text-align: center; color: var(--text-secondary);">Disponibilidad para el 23 de Mar
+                        </h4>
+                        <div class="slots-grid" id="slots-container">
+                            <div class="time-slot" onclick="selectTime(this)">09:15</div>
+                            <div class="time-slot" onclick="selectTime(this)">10:30</div>
+                            <div class="time-slot" onclick="selectTime(this)">18:00</div>
+                            <div class="time-slot" onclick="selectTime(this)">19:15</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="booking-nav">
+                    <button class="btn btn-outline" onclick="prevStep(1)">Atrás</button>
+                    <button class="btn btn-gold" id="btn-next-2" disabled onclick="nextStep(3)">Continuar</button>
+                </div>
+            </div>
+
+            <!-- Step 3: User Details -->
+            <div class="booking-step-content" id="step-3">
+                <h3 style="text-align: center; margin-bottom: 2rem;">Tus Datos Personales</h3>
+
+                <div style="max-width: 600px; margin: 0 auto;">
+                    <div class="booking-summary">
+                        <h4 style="margin-bottom: 10px; color: var(--accent-gold);">Resumen de tu reserva:</h4>
+                        <p id="summary-preview">Cargando...</p>
+                    </div>
+
+                    <form id="booking-form" onsubmit="event.preventDefault(); nextStep(4);">
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                            <div class="form-group">
+                                <label for="fname">Nombre *</label>
+                                <input type="text" id="fname" class="form-control" required placeholder="Tu nombre">
+                            </div>
+                            <div class="form-group">
+                                <label for="lname">Apellidos *</label>
+                                <input type="text" id="lname" class="form-control" required placeholder="Tus apellidos">
+                            </div>
+                        </div>
+
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                            <div class="form-group">
+                                <label for="email">Email *</label>
+                                <input type="email" id="email" class="form-control" required
+                                    placeholder="ejemplo@correo.com">
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Teléfono *</label>
+                                <input type="tel" id="phone" class="form-control" required
+                                    placeholder="+34 600 000 000">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="notes">Notas adicionales (opcional)</label>
+                            <textarea id="notes" class="form-control"
+                                placeholder="¿Tienes alguna lesión o condición médica que debamos conocer?"></textarea>
+                        </div>
+
+                        <div class="booking-nav">
+                            <button type="button" class="btn btn-outline" onclick="prevStep(2)">Atrás</button>
+                            <button type="submit" class="btn btn-gold">Confirmar Reserva</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Step 4: Confirmation -->
+            <div class="booking-step-content" id="step-4">
+                <div class="success-message">
+                    <div class="success-icon"><i class="fas fa-check-circle"></i></div>
+                    <h2 class="text-gold" style="margin-bottom: 1rem;">¡Reserva Confirmada!</h2>
+                    <p style="font-size: 1.2rem; max-width: 600px; margin: 0 auto 2rem;">
+                        Gracias por confiar en Yoga Quirós. Hemos enviado un correo electrónico de confirmación con los
+                        detalles de tu clase.
+                    </p>
+
+                    <div class="booking-summary" style="max-width: 500px; margin: 0 auto 3rem; text-align: left;">
+                        <div class="summary-item">
+                            <span>Clase:</span>
+                            <span id="final-service" style="font-weight: bold;">-</span>
+                        </div>
+                        <div class="summary-item">
+                            <span>Fecha:</span>
+                            <span id="final-date" style="font-weight: bold;">-</span>
+                        </div>
+                        <div class="summary-item">
+                            <span>Hora:</span>
+                            <span id="final-time" style="font-weight: bold;">-</span>
+                        </div>
+                        <div class="summary-item">
+                            <span>Total a pagar en centro:</span>
+                            <span style="color: var(--accent-gold);">Clase de prueba gratuita / Incluido en cuota</span>
+                        </div>
+                    </div>
+
+                    <a href="index.html" class="btn btn-outline">Volver al Inicio</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="footer-main">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-col">
+                        <h3>Sobre Nosotros</h3>
+                        <p>Centro dedicado a llevar los beneficios del Yoga y la relajación profunda a tu vida de manera
+                            profesional y personal.</p>
+                    </div>
+                    <div class="footer-col">
+                        <h3>Donde Estamos</h3>
+                        <div class="footer-contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <a href="https://maps.app.goo.gl/vKVB9Pz6PvzB8QxY7" target="_blank" rel="noopener">C/
+                                Duquesa de Talavera 33<br>41500 Alcalá de Guadaíra, Sevilla</a>
+                        </div>
+                        <div class="footer-contact-item">
+                            <i class="fas fa-phone-alt"></i>
+                            <div><a href="tel:+34671648639">+34 671 648 639</a></div>
+                        </div>
+                        <div class="footer-contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:yogaquiros2025@gmail.com">yogaquiros2025@gmail.com</a>
+                        </div>
+                        <div class="footer-contact-item">
+                            <i class="fab fa-instagram"></i>
+                            <a href="https://instagram.com/yogaquiros" target="_blank">@yogaquiros</a>
+                        </div>
+                    </div>
+                    <div class="footer-col">
+                        <h3>Contacto</h3>
+                        <form class="footer-form">
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+                                <input type="text" name="nombre" placeholder="Nombre *" required>
+                                <input type="email" name="email" placeholder="Email *" required>
+                            </div>
+                            <input type="tel" name="telefono" placeholder="Teléfono">
+                            <textarea name="mensaje" placeholder="Mensaje *" required></textarea>
+                            <button type="submit" class="btn-send">Enviar Mensaje</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>Copyright &copy; 2026 - YOGA QUIRÓS | Todos los derechos reservados</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/booking.js"></script>
+</body>
+
+</html>
